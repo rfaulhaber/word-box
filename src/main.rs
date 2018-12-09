@@ -10,7 +10,6 @@ fn main() {
 
     let input_str_cleaned: String = input_str
         .chars()
-        .filter(|c| c.to_owned() != ' ')
         .filter(|c| c.to_owned().is_alphabetic())
         .collect();
 
