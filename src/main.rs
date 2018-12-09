@@ -8,18 +8,24 @@ fn main() {
 
     let input_str: String = input.join("");
 
-    let input_str_cleaned: String = input_str.chars().filter(|c| c.to_owned() != ' ').collect();
+    let input_str_cleaned: String = input_str
+        .chars()
+        .filter(|c| c.to_owned() != ' ')
+        .filter(|c| c.to_owned().is_alphabetic())
+        .collect();
 
-    println!(
-        "input: {}, length: {}",
-        input_str.to_uppercase(),
-        input_str_cleaned.len()
-    );
+    // TODO print absolute input length, how long it took to run, dimensions
+
+    // println!(
+    //     "input: {}, length: {}",
+    //     input_str.to_uppercase(),
+    //     input_str_cleaned.len()
+    // );
 
     match word_box::pack_box(input_str_cleaned.to_uppercase()) {
         Result::Ok(output) => {
-            let (x, y) = output.dimensions;
-            println!("dimensions: ({}, {})", x, y);
+            // let (x, y) = output.dimensions;
+            // println!("dimensions: ({}, {})", x, y);
             println!("{}", output);
         }
         Result::Err(err_msg) => {

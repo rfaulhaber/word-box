@@ -13,7 +13,7 @@ impl fmt::Display for WordBox {
 
 		for row in self.container.to_owned() {
 			for col in row {
-				write!(f, "\t{}", col)?;
+				write!(f, "  {}", col)?;
 			}
 
 			write!(f, "\n")?;
